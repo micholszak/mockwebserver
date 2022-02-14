@@ -23,7 +23,7 @@
 
   <groupId>io.fabric8</groupId>
   <artifactId>mockwebserver</artifactId>
-  <version>0.3</version>
+  <version>0.3.1</version>
   <name>Fabric8 :: Mock Web Server</name>
   <description>Mock Web Server</description>
 
@@ -75,7 +75,7 @@
 
     <!-- Dependencies -->
     <okhttp.version>4.9.3</okhttp.version>
-    <jackson.version>2.13.0</jackson.version>
+    <jackson.version>2.10.4</jackson.version>
     <zjsonpatch.version>0.3.0</zjsonpatch.version>
 
     <!-- For Testing -->

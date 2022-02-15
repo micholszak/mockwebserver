@@ -24,13 +24,7 @@ import okhttp3.WebSocketListener;
 import okhttp3.mockwebserver.RecordedRequest;
 import okio.ByteString;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -42,8 +36,8 @@ public class WebSocketSession extends WebSocketListener {
     private final WebSocketMessage failure;
     private final Exception cause;
 
-    private final Collection<WebSocket> activeSockets = ConcurrentHashMap.newKeySet();
-    private final Collection<UUID> pendingMessages = ConcurrentHashMap.newKeySet();
+    private final Collection<WebSocket> activeSockets = Collections.newSetFromMap(new ConcurrentHashMap<>());
+    private final Collection<UUID> pendingMessages = Collections.newSetFromMap(new ConcurrentHashMap<>());
     private final Map<Object, Queue<WebSocketMessage>> requestEvents = new HashMap<>();
     private final Map<Object, Queue<WebSocketMessage>> sentWebSocketMessagesRequestEvents = new HashMap<>();
     private final Map<SimpleRequest, Queue<WebSocketMessage>> httpRequestEvents = new HashMap<>();
